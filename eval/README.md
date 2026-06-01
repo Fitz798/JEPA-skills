@@ -8,6 +8,7 @@ This folder validates JEPA skill v1 capabilities without changing skill behavior
 - `scoring_rubric.md`: manual judging rubric.
 - `results_schema.md`: expected result JSONL schema.
 - `summarize_eval.py`: aggregate score report from judged results.
+- `check_evidence_coverage.py`: checks whether responses include Evidence+Mapping blocks.
 
 ## Workflow
 
@@ -20,8 +21,13 @@ This folder validates JEPA skill v1 capabilities without changing skill behavior
 python eval/summarize_eval.py --input eval/results/baseline_v1_0_0.jsonl --output eval/results/baseline_v1_0_0_summary.md
 ```
 
+5. (Optional) check evidence-format compliance from markdown responses:
+
+```powershell
+python eval/check_evidence_coverage.py --responses eval/results/baseline_v1_0_0_rp_dbg_wrt30_responses.md --output eval/results/coverage_rp_dbg_wrt30.json
+```
+
 ## Recommended baseline runs
 
 - `baseline_v1_0_0`: tag `v1.0.0`
 - `baseline_v1_0_1_eval`: same skill behavior, eval assets added
-

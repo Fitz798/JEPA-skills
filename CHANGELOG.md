@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.1.0 - in progress
+
+- Added evidence-binding hard constraints in `jepa-research/SKILL.md`.
+- Added `references/evidence_binding_rules.md` for citation/traceability policy.
+- Updated output templates to require action/claim -> evidence mapping in reproduction/debug outputs.
+- Added `eval/check_evidence_coverage.py` to measure Evidence+Mapping compliance in response markdown files.
+
 ## v1.0.1 - 2026-06-01
 
 - Added evaluation suite under `eval/` without changing skill behavior.

@@ -32,8 +32,23 @@ Always keep outputs actionable and traceable.
 - For factual claims, include an **Evidence** block with file-level references.
 - For uncertain claims, label confidence as `high`, `medium`, or `low`.
 - For recommendations, include a short rationale and expected tradeoff.
+- For `reproduction_plan` and `debug_triage`, every major action item must map to at least one evidence ID.
 
 Use one of the following modes based on user intent.
+
+## Evidence binding format (required)
+
+For non-trivial answers, include:
+
+1. **Action/Claim list** with IDs (`A1`, `A2`, ... or `C1`, `C2`, ...).
+2. **Evidence table** with IDs (`E1`, `E2`, ...), each with:
+   - source type: `paper` | `code` | `protocol` | `log`
+   - pointer: paper_id/filename, file path, or log artifact
+3. **Mapping line**: `A# -> E#`
+
+If evidence is missing, explicitly mark:
+
+`A# -> missing_evidence`
 
 ## Mode 1: Research Q&A
 
@@ -65,9 +80,16 @@ Key differences:
 Practical implication:
 - ...
 
+Claims:
+- C1: ...
+- C2: ...
+
 Evidence:
-- [paper_id] filename
-- [paper_id] filename
+- E1 (paper): [paper_id] filename
+- E2 (paper): [paper_id] filename
+Mapping:
+- C1 -> E1
+- C2 -> E2
 Confidence: high|medium|low
 ```
 
@@ -94,10 +116,10 @@ Target:
 - Candidate code: ...
 
 Run plan:
-1. Environment ...
-2. Data ...
-3. Train command ...
-4. Eval command ...
+1. A1 Environment ...
+2. A2 Data ...
+3. A3 Train command ...
+4. A4 Eval command ...
 
 Risk checks:
 - ...
@@ -105,6 +127,15 @@ Risk checks:
 
 Pass criteria:
 - ...
+
+Evidence:
+- E1 (paper): ...
+- E2 (code/protocol): ...
+Mapping:
+- A1 -> E2
+- A2 -> E2
+- A3 -> E1,E2
+- A4 -> E1,E2
 ```
 
 ## Mode 3: Debug Triage
@@ -134,16 +165,21 @@ Diagnosis:
 - Secondary hypotheses: ...
 
 Fix order:
-1. ...
-2. ...
-3. ...
+1. A1 ...
+2. A2 ...
+3. A3 ...
 
 Verify:
 - check 1 ...
 - check 2 ...
 
 Evidence:
-- ...
+- E1 (code/protocol): ...
+- E2 (paper): ...
+Mapping:
+- A1 -> E1
+- A2 -> E1,E2
+- A3 -> E1
 Confidence: high|medium|low
 ```
 
@@ -168,8 +204,13 @@ Draft:
 <paragraphs>
 
 Claim-to-citation map:
-- C1: claim ... -> [paper_id_a], [paper_id_b]
-- C2: claim ... -> [paper_id_c]
+- C1: claim ... -> E1,E2
+- C2: claim ... -> E3
+
+Evidence:
+- E1 (paper): [paper_id_a]
+- E2 (paper): [paper_id_b]
+- E3 (paper): [paper_id_c]
 ```
 
 ## Citation guidance
@@ -177,16 +218,18 @@ Claim-to-citation map:
 - Prefer `paper_id` and local filename first.
 - If `arxiv_id` exists, include it in candidate citation output.
 - Do not invent references. If missing, state missing evidence explicitly.
+- For debugging answers, cite at least one `code` or `protocol` evidence item.
 
 ## Guardrails
 
 - Do not claim reproduction success without explicit run evidence.
 - Distinguish repository metadata from verified experimental outcomes.
 - Keep legal boundaries clear: users must comply with third-party licenses.
+- Do not present advice-only responses without evidence mapping when user asks for concrete actions.
 
 ## Suggested helper files
 
 - `references/output_templates.md`
 - `references/task_taxonomy.md`
+- `references/evidence_binding_rules.md`
 - `scripts/make_citation_candidates.py`
-

@@ -35,6 +35,16 @@ Risks:
 
 Validation:
 - ...
+
+Evidence:
+- E1 (paper): ...
+- E2 (code/protocol): ...
+
+Mapping:
+- A1 -> E2
+- A2 -> E2
+- A3 -> E1,E2
+- A4 -> E1,E2
 ```
 
 ## C) Debug Plan
@@ -46,11 +56,19 @@ Likely root cause:
 - ...
 
 Fix sequence:
-1. ...
-2. ...
+1. A1 ...
+2. A2 ...
 
 Checks:
 - ...
+
+Evidence:
+- E1 (code/protocol): ...
+- E2 (paper, optional): ...
+
+Mapping:
+- A1 -> E1
+- A2 -> E1,E2
 
 Confidence: high|medium|low
 ```
@@ -67,4 +85,3 @@ Claim-to-citation map:
 - C1 -> [paper_id]
 - C2 -> [paper_id]
 ```
-
