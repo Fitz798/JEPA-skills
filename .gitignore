@@ -1,0 +1,12 @@
+# Local heavy corpus (do not commit by default)
+corpus/papers/all/
+corpus/code/archives/
+corpus/_duplicates/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# OS files
+.DS_Store
+Thumbs.db

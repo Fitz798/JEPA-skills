@@ -1,0 +1,3 @@
+claim_id,claim_text,paper_id,arxiv_id,code_id,evidence_type,evidence_locator,confidence,notes
+C1,JEPA improves representation invariance under predictive targets,arxiv_2301.08243,2301.08243,,paper,page:?,medium,
+C2,Masking strategy materially affects downstream transfer,,,,code,file:?:line:?,medium,
