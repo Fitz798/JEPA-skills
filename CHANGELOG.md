@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.0.1 - 2026-06-01
+
+- Added evaluation suite under `eval/` without changing skill behavior.
+- Added 40 prompt benchmark set across four skill modes.
+- Added manual scoring rubric and result schema.
+- Added result templating script and summary report generator.
+
 ## v1.0.0 - 2026-06-01
 
 - Initial open-source JEPA skill scaffold.
