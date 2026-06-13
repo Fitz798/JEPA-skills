@@ -1,0 +1,55 @@
+# Eval Summary: v1_3_0_full40_scored.jsonl
+
+- Total prompts judged: 40
+
+## Overall
+
+| Metric | Rate | N |
+|---|---:|---:|
+| Factual correctness | 100.0% | 40 |
+| Citation hit | 100.0% | 40 |
+| Executability | 100.0% | 10 |
+| Debug hit | 100.0% | 10 |
+| Hallucination rate | 0.0% | 40 |
+
+## By Mode
+
+### debug_triage
+
+| Metric | Rate | N |
+|---|---:|---:|
+| Factual correctness | 100.0% | 10 |
+| Citation hit | 100.0% | 10 |
+| Executability | n/a | 0 |
+| Debug hit | 100.0% | 10 |
+| Hallucination rate | 0.0% | 10 |
+
+### reproduction_plan
+
+| Metric | Rate | N |
+|---|---:|---:|
+| Factual correctness | 100.0% | 10 |
+| Citation hit | 100.0% | 10 |
+| Executability | 100.0% | 10 |
+| Debug hit | n/a | 0 |
+| Hallucination rate | 0.0% | 10 |
+
+### research_qa
+
+| Metric | Rate | N |
+|---|---:|---:|
+| Factual correctness | 100.0% | 10 |
+| Citation hit | 100.0% | 10 |
+| Executability | n/a | 0 |
+| Debug hit | n/a | 0 |
+| Hallucination rate | 0.0% | 10 |
+
+### writing_citation
+
+| Metric | Rate | N |
+|---|---:|---:|
+| Factual correctness | 100.0% | 10 |
+| Citation hit | 100.0% | 10 |
+| Executability | n/a | 0 |
+| Debug hit | n/a | 0 |
+| Hallucination rate | 0.0% | 10 |

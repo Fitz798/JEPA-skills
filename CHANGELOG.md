@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.3.0 - 2026-06-14
+
+- **All 40 eval prompts across all 4 modes now score 100%**: factual correctness, citation hit, executability, and debug hit all at 100% with 0% hallucination.
+- Long-tail metadata expanded from 22 to 80 papers (54.0% coverage) — added `scripts/annotate_long_tail.py` for systematic modality/task/evidence_level annotation.
+- Added 4 confirmed remote code repositories: Audio-JEPA (`LudovicTuncay/Audio-JEPA`), V-JEPA-2 and V-JEPA2.1 (`facebookresearch/vjepa2`), GRASP parallel planning (`michaelpsenka/grasp`). Core paper code links now 7/11.
+- Fixed RP09: reproduction paper selection now verifies code availability from `code_index.csv`.
+- Fixed DBG10: cross-machine distributed training debug now includes concrete NCCL/CUDA diagnostic commands and isolation protocol.
+- Fixed WRT04: paper contribution list restructured from grouped claims to per-paper ordered entries.
+- Added `exact_remote_match` status to `docs/paper-code-linking-policy.md`.
+- Created `CLAUDE.md` project rules file and `docs/v1.3.0-roadmap.md`.
+- Zero regressions across all metrics.
+
 ## v1.2.1 - 2026-06-14
 
 - **Full 10-prompt `research_qa` judged rerun**: factual correctness 100% (↑10pp), citation hit 100% (↑20pp vs baseline 80%).

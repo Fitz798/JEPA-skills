@@ -118,13 +118,13 @@ Full workflow documented in `docs/v1.2.0-release-eval-workflow.md`.
 
 ## Eval benchmark reference
 
-| Metric | v1.0.0 | v1.1.0 | v1.2.1 |
-|--------|--------|--------|--------|
-| Factual correctness (full40) | 92.5% | 92.5% | 92.5% |
-| Citation hit (full40) | 65.0% | 95.0% | 95.0% |
-| Research QA factual correctness | 90.0% | 90.0% | 100.0% |
-| Research QA citation hit | 80.0% | 80.0% | 100.0% |
-| Hallucination rate | 0.0% | 0.0% | 0.0% |
+| Metric | v1.0.0 | v1.1.0 | v1.2.1 | v1.3.0 |
+|--------|--------|--------|--------|--------|
+| Factual correctness (full40) | 92.5% | 92.5% | 92.5% | **100.0%** |
+| Citation hit (full40) | 65.0% | 95.0% | 95.0% | **100.0%** |
+| Executability (10 prompts) | 90.0% | 90.0% | 90.0% | **100.0%** |
+| Debug hit (10 prompts) | 90.0% | 90.0% | 90.0% | **100.0%** |
+| Hallucination rate | 0.0% | 0.0% | 0.0% | 0.0% |
 
 ## Current gaps (v1.2.1 → v1.3.0)
 
