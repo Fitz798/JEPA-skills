@@ -24,6 +24,7 @@ Use these `paper_catalog.csv` fields together:
 ## Allowed `code_link_status` Values
 
 - `exact_local_match`: the local archive is a confident direct match for the paper
+- `exact_remote_match`: confirmed official remote repository (GitHub/GitLab/etc.) for the paper; no local archive needed
 - `family_match_only`: the local archive is relevant to the same method family, but not confirmed as the paper's direct implementation
 - `multiple_local_candidates`: more than one local archive may be relevant and no single one should be preferred yet
 - `no_known_local_code`: no matching local archive is currently known in `metadata/code_index.csv`
@@ -32,10 +33,11 @@ Use these `paper_catalog.csv` fields together:
 
 1. Set `code_id` only when one local archive is the best current choice.
 2. Use `exact_local_match` only when the archive name or contents strongly support the mapping.
-3. Use `family_match_only` when the archive is relevant but version, variant, or authorship is uncertain.
-4. Use `multiple_local_candidates` when several archives are plausible and manual review is still needed.
-5. Use `no_known_local_code` when nothing in `metadata/code_index.csv` is a reasonable match.
-6. Use `notes` to explain ambiguous mappings.
+3. Use `exact_remote_match` when the paper has a confirmed official remote repository; set `code_repo_url` to the repo URL and leave `code_id` empty if no local mirror exists.
+4. Use `family_match_only` when the archive is relevant but version, variant, or authorship is uncertain.
+5. Use `multiple_local_candidates` when several archives are plausible and manual review is still needed.
+6. Use `no_known_local_code` when nothing in `metadata/code_index.csv` is a reasonable match.
+7. Use `notes` to explain ambiguous mappings.
 
 ## Current Conservative Policy for v1.2.0
 

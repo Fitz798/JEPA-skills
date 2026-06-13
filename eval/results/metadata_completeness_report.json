@@ -743,9 +743,10 @@
   "overall_code_link_status_counts": {
     "<missing>": 137,
     "exact_local_match": 1,
-    "family_match_only": 2,
-    "multiple_local_candidates": 2,
-    "no_known_local_code": 6
+    "exact_remote_match": 4,
+    "family_match_only": 1,
+    "multiple_local_candidates": 1,
+    "no_known_local_code": 4
   },
   "core_code_linkage": {
     "total_core_rows": 11,
@@ -753,9 +754,10 @@
     "code_id_coverage_rate": 0.2727,
     "status_counts": {
       "exact_local_match": 1,
-      "family_match_only": 2,
-      "multiple_local_candidates": 2,
-      "no_known_local_code": 6
+      "exact_remote_match": 4,
+      "family_match_only": 1,
+      "multiple_local_candidates": 1,
+      "no_known_local_code": 4
     }
   },
   "core_gate_ok": true,
