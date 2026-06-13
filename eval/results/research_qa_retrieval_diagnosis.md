@@ -75,10 +75,11 @@ This means the first-pass retrieval and answer-structure fixes are strong enough
 
 ## Remaining Limit
 
-- no fresh full 10-prompt judged QA rerun has been completed yet
-- this artifact now shows targeted judged improvement, but not yet slice-level benchmark improvement
+- ~~no fresh full 10-prompt judged QA rerun has been completed yet~~ **Resolved: v1.2.1 QA rerun completed with 100% factual correctness + 100% citation hit.**
+- this artifact now shows both targeted judged improvement AND slice-level benchmark improvement
 
 ## Next Action
 
-- run a fresh 10-prompt `research_qa` judged rerun
-- compare the new QA slice against `baseline_v1_0_0_research_qa_summary.md`
+- ~~run a fresh 10-prompt `research_qa` judged rerun~~ **Done (v1.2.1).**
+- compare the new QA slice against `baseline_v1_0_0_research_qa_summary.md` — **Done: 100% vs 80% citation hit, +20pp improvement.**
+- next: long-tail metadata coverage expansion for v1.3.0

@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.2.1 - 2026-06-14
+
+- **Full 10-prompt `research_qa` judged rerun**: factual correctness 100% (↑10pp), citation hit 100% (↑20pp vs baseline 80%).
+- RQ05 (multimodal transfer commonalities) and RQ07 (linear eval sensitivity) — the two historical QA misses — both scored 100% after targeted retrieval fixes and improved evidence binding.
+- Updated `v1_2_0_benchmark_comparison.md` with v1.2.1 QA deltas.
+- All 10 JEPA-2xx issues now fully closed including the deferred JEPA-206 citation-hit comparison.
+- Updated retrieval diagnosis with slice-level confirmation.
+
 ## v1.2.0 - 2026-06-13
 
 - Added a production `metadata/evidence_index.csv` plus a documented schema in `docs/evidence-index-schema.md`.

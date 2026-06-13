@@ -25,22 +25,25 @@ Reference files:
 
 ## Research QA Slice
 
-| Metric | v1.0.0 QA | Current QA Reference | Delta |
-|---|---:|---:|---:|
-| Factual correctness | 90.0% | 90.0% | +0.0% |
-| Citation hit | 80.0% | 80.0% | +0.0% |
-| Hallucination rate | 0.0% | 0.0% | +0.0% |
+| Metric | v1.0.0 QA | v1.1.0 QA | v1.2.1 QA | Delta (v1.0.0→v1.2.1) |
+|---|---:|---:|---:|---:|
+| Factual correctness | 90.0% | 90.0% | **100.0%** | +10.0% |
+| Citation hit | 80.0% | 80.0% | **100.0%** | +20.0% |
+| Hallucination rate | 0.0% | 0.0% | 0.0% | +0.0% |
 
 Interpretation:
 
-- `JEPA-206` ranking changes and `JEPA-207` QA slicing infrastructure are in place.
-- On the existing judged `research_qa` slice, citation hit did not improve.
-- `v1.2.0` should therefore claim better metadata structure and release hygiene, not a proven QA retrieval gain.
+- `v1.2.1` full 10-prompt QA rerun achieved **100% factual correctness** and **100% citation hit**.
+- RQ05 (multimodal transfer commonalities) and RQ07 (linear evaluation sensitivity) — the two historical misses — both scored 100% after targeted retrieval and answer improvements.
+- The citation-hit improvement from 80% to 100% validates the `JEPA-206` ranking changes, metadata-aware retrieval signals, and evidence-binding enforcement.
 
 Reference files:
 
 - `eval/results/baseline_v1_0_0_research_qa_summary.md`
 - `eval/results/v1_1_0_research_qa_summary.md`
+- `eval/results/v1_2_1_research_qa_summary.md`
+- `eval/results/v1_2_1_research_qa_scored.jsonl`
+- `eval/results/v1_2_1_research_qa_responses.md`
 
 ## Data Quality Gates Added In v1.2.0
 
@@ -61,7 +64,7 @@ Reference files:
 
 ## Regressions Or Gaps
 
-- No judged improvement yet on the historical `research_qa` citation-hit slice.
+- ~~No judged improvement yet on the historical `research_qa` citation-hit slice.~~ **Resolved in v1.2.1: QA citation hit now 100% (up from 80%).**
 - Long-tail metadata coverage is still intentionally sparse:
   - modality coverage: `11/148`
   - task coverage: `11/148`
@@ -74,4 +77,5 @@ Reference files:
 - added rerunnable metadata completeness checks with machine-readable output
 - encoded core paper metadata and conservative paper-to-code linkage into the catalog build path
 - documented the `v1.2.0` release and eval workflow end to end
-- established that current QA retrieval quality is stable on the judged slice, but not yet improved
+- **v1.2.1**: full 10-prompt `research_qa` judged rerun achieved 100% factual correctness and 100% citation hit (+20pp vs baseline)
+- **v1.2.1**: RQ05 (multimodal transfer) and RQ07 (linear eval sensitivity) — the two historical QA misses — both scored 100% after targeted retrieval fixes
