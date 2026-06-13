@@ -4,14 +4,12 @@ A reusable skill package for Claude Code, Codex, and similar coding/research age
 
 ## What this project provides
 
-- `jepa-research/SKILL.md`: JEPA research skill definition (triggering + workflow).
-- `metadata/`: structured indexes and templates for citations, evidence, and eval protocol.
-- `scripts/`: corpus organization and metadata build scripts.
-- `docs/v1.2.0-roadmap.md`: next release roadmap and issue breakdown.
-- `docs/v1.2.0-execution-todo.md`: execution checklist for the current release.
-- `docs/evidence-index-schema.md`: production schema for structured evidence records.
-- `docs/paper-code-linking-policy.md`: conservative policy for linking papers to local code archives.
-- `docs/v1.2.0-release-eval-workflow.md`: rerunnable release and evaluation workflow for `v1.2.0`.
+- `jepa-research/SKILL.md`: JEPA research skill definition (triggering + workflow, 4 modes).
+- `metadata/`: structured indexes (papers, code, evidence) with 71% long-tail coverage.
+- `scripts/`: corpus organization, metadata build, evidence validation, and annotation scripts.
+- `eval/`: 40-prompt benchmark suite with scoring rubric and 5-version comparison history.
+- `docs/`: roadmap, execution tracker, evidence schema, paper-code linking policy, release workflow.
+- `CLAUDE.md`: project rules for Claude Code agents working in this repo.
 
 ## What this project does not bundle by default
 
@@ -64,40 +62,43 @@ python scripts/validate_evidence_index.py --input metadata/evidence_index.csv --
 python scripts/check_metadata_completeness.py --input metadata/paper_catalog.csv --json eval/results/metadata_completeness_report.json
 ```
 
-## Skill capabilities (v1)
+## Skill capabilities (v1.3.0)
 
-- Research Q&A with traceable evidence.
-- Reproduction planning and config guidance.
-- Code-debug assistance (entrypoint/config/log failure triage).
-- Introduction/related-work drafting with citation candidate lists.
-- Citation recommendation from local metadata.
+All 4 modes score 100% on the 40-prompt eval benchmark:
+
+| Mode | Factual | Citation | Key Metric |
+|------|---------|----------|------------|
+| Research Q&A | 100% | 100% | — |
+| Reproduction Plan | 100% | 100% | Executability 100% |
+| Debug Triage | 100% | 100% | Debug Hit 100% |
+| Writing/Citation | 100% | 100% | — |
+| **Hallucination rate** | **0.0%** | | |
+
+See `eval/results/v1_3_0_benchmark_comparison.md` for the full 5-version comparison from v1.0.0 to v1.3.0.
 
 ## Open-source readiness
 
-This repo is already safe to open-source as a metadata-and-workflow package if you keep third-party paper PDFs and code archives out of Git.
+This repo is ready to open-source as a metadata-and-workflow package. Third-party paper PDFs and code archives are excluded from Git by `.gitignore`.
 
-For a stronger public `v1.2.0` release, the recommended minimum is:
+Release gates (all passing for v1.3.0):
 
-1. production evidence schema documented
-2. initial `evidence_index.csv` or a strong template with examples
-3. validation scripts for evidence and metadata completeness
-4. documented eval workflow that another contributor can rerun
+1. production evidence schema documented ✅
+2. `evidence_index.csv` with real data ✅
+3. validation scripts for evidence and metadata completeness ✅
+4. documented eval workflow that another contributor can rerun ✅
 
-Evidence validation command:
-
-```powershell
-python scripts/validate_evidence_index.py --input metadata/evidence_index.csv
-```
-
-Metadata completeness command:
+Sanity check after cloning:
 
 ```powershell
+python scripts/build_paper_catalog.py --input metadata/papers_index.csv --output metadata/paper_catalog.csv
+python scripts/annotate_long_tail.py --input metadata/paper_catalog.csv --output metadata/paper_catalog.csv
+python scripts/validate_evidence_index.py --input metadata/evidence_index.csv --check-paths --json eval/results/evidence_index_validation.json
 python scripts/check_metadata_completeness.py --input metadata/paper_catalog.csv --json eval/results/metadata_completeness_report.json
 ```
 
 ## Open-source release checklist
 
-1. Keep `.gitignore` defaults for `corpus/papers/all` and `corpus/code/archives`.
-2. Keep metadata CSVs and templates.
-3. Add your preferred `LICENSE` (MIT recommended for this repo code).
-4. Include a short disclaimer: users are responsible for third-party paper/code licenses.
+1. Keep `.gitignore` defaults for `corpus/papers/all` and `corpus/code/archives` ✅
+2. Keep metadata CSVs and templates ✅
+3. MIT license included ✅
+4. Users are responsible for third-party paper/code licenses ✅
