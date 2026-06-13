@@ -1,3 +1,4 @@
-claim_id,claim_text,paper_id,arxiv_id,code_id,evidence_type,evidence_locator,confidence,notes
-C1,JEPA improves representation invariance under predictive targets,arxiv_2301.08243,2301.08243,,paper,page:?,medium,
-C2,Masking strategy materially affects downstream transfer,,,,code,file:?:line:?,medium,
+evidence_id,evidence_type,paper_id,arxiv_id,code_id,artifact_path,locator,claim_summary,claim_scope,confidence,status,notes
+E0001,paper,2023_assran_self_supervised_learning_from_images_with_a_joint_embedding_predictive_architecture_cvpr_2023_paper,,,,page:1,I-JEPA predicts target block representations from visible context blocks,method,high,verified,
+E0002,code,,,ijepa_main,corpus/code/archives/ijepa-main.zip,file:src/train.py#line:1-80,Training entrypoint for the local I-JEPA code archive,procedure,medium,provisional,Update locator after extracted file mapping is confirmed
+E0003,protocol,,,,metadata/eval_protocol_template.md,section:reproduction,Evaluation protocol template supports reproduction-plan answers,procedure,high,verified,

@@ -1,5 +1,16 @@
 # Changelog
 
+## v1.2.0 - 2026-06-13
+
+- Added a production `metadata/evidence_index.csv` plus a documented schema in `docs/evidence-index-schema.md`.
+- Added `scripts/validate_evidence_index.py` to validate evidence rows, IDs, anchors, allowed enums, and optional local artifact paths.
+- Expanded `scripts/build_paper_catalog.py` and `metadata/paper_catalog.csv` with modality, task, evidence-level, and conservative paper-to-code linkage fields.
+- Added `scripts/check_metadata_completeness.py` plus machine-readable release-gate output for core metadata coverage.
+- Added `eval/filter_eval_by_mode.py` and documented a rerunnable QA-only evaluation flow.
+- Added `docs/paper-code-linking-policy.md`, `docs/v1.2.0-release-eval-workflow.md`, and execution-tracking docs for the release process.
+- Added targeted `research_qa` retrieval diagnostics and rerun artifacts for `RQ05` and `RQ07`.
+- Confirmed `v1.2.0` improves metadata structure and release hygiene, while the historical judged `research_qa` slice remains flat at `80%` citation hit.
+
 ## v1.1.0 - 2026-06-01
 
 - Added evidence-binding hard constraints in `jepa-research/SKILL.md`.

@@ -20,7 +20,7 @@ Provide practical support for JEPA researchers and practitioners:
   - `metadata/papers_index.csv`
   - `metadata/paper_catalog.csv` (if available)
   - `metadata/code_index.csv`
-  - `metadata/evidence_index.csv` (if available)
+  - `metadata/evidence_index.csv` (if available; see `docs/evidence-index-schema.md`)
 - Optional local corpus:
   - `corpus/papers/all/*`
   - `corpus/code/archives/*`
@@ -43,7 +43,7 @@ For non-trivial answers, include:
 1. **Action/Claim list** with IDs (`A1`, `A2`, ... or `C1`, `C2`, ...).
 2. **Evidence table** with IDs (`E1`, `E2`, ...), each with:
    - source type: `paper` | `code` | `protocol` | `log`
-   - pointer: paper_id/filename, file path, or log artifact
+   - pointer: `evidence_id` plus paper_id/filename, file path, or log artifact
 3. **Mapping line**: `A# -> E#`
 
 If evidence is missing, explicitly mark:

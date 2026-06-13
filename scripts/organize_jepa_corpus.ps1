@@ -85,8 +85,7 @@ $paths = @{
     SourceAwesome      = Join-Path $repoRoot "JEPA-Papers\awesome-jepa"
     SourceCode         = Join-Path $repoRoot "JEPA-CodeBase"
     CorpusRoot         = Join-Path $repoRoot "corpus"
-    CorpusCorePapers   = Join-Path $repoRoot "corpus\papers\core"
-    CorpusAwesomePapers= Join-Path $repoRoot "corpus\papers\awesome"
+    CorpusAllPapers    = Join-Path $repoRoot "corpus\papers\all"
     CorpusCodeArchives = Join-Path $repoRoot "corpus\code\archives"
     DuplicatesRoot     = Join-Path $repoRoot "corpus\_duplicates"
     DuplicatesPapers   = Join-Path $repoRoot "corpus\_duplicates\papers"
@@ -94,14 +93,14 @@ $paths = @{
     Metadata           = Join-Path $repoRoot "metadata"
 }
 
-foreach ($k in @("CorpusRoot","CorpusCorePapers","CorpusAwesomePapers","CorpusCodeArchives","DuplicatesRoot","DuplicatesPapers","DuplicatesCode","Metadata")) {
+foreach ($k in @("CorpusRoot","CorpusAllPapers","CorpusCodeArchives","DuplicatesRoot","DuplicatesPapers","DuplicatesCode","Metadata")) {
     Ensure-Dir -Path $paths[$k]
 }
 
 $paperMoves = @()
 $topLevelPapers = Get-ChildItem -Path $paths.SourcePapersRoot -File -Filter *.pdf -ErrorAction SilentlyContinue
 foreach ($f in $topLevelPapers) {
-    $target = Get-UniquePath -Directory $paths.CorpusCorePapers -FileName $f.Name
+    $target = Get-UniquePath -Directory $paths.CorpusAllPapers -FileName $f.Name
     Move-Item -LiteralPath $f.FullName -Destination $target
     $paperMoves += [pscustomobject]@{
         From = $f.FullName
@@ -111,7 +110,7 @@ foreach ($f in $topLevelPapers) {
 
 $awesomePapers = Get-ChildItem -Path $paths.SourceAwesome -File -Filter *.pdf -ErrorAction SilentlyContinue
 foreach ($f in $awesomePapers) {
-    $target = Get-UniquePath -Directory $paths.CorpusAwesomePapers -FileName $f.Name
+    $target = Get-UniquePath -Directory $paths.CorpusAllPapers -FileName $f.Name
     Move-Item -LiteralPath $f.FullName -Destination $target
     $paperMoves += [pscustomobject]@{
         From = $f.FullName
@@ -136,16 +135,16 @@ foreach ($f in $archives) {
     }
 }
 
-# Rename core papers to a canonical format: year_title_slug.pdf
+# Rename papers to a canonical format: year_title_slug.pdf
 $renameLog = @()
-$coreFiles = Get-ChildItem -Path $paths.CorpusCorePapers -File -Filter *.pdf
-foreach ($f in $coreFiles) {
+$paperFilesForRename = Get-ChildItem -Path $paths.CorpusAllPapers -File -Filter *.pdf
+foreach ($f in $paperFilesForRename) {
     $meta = Get-PaperMeta -File $f
     $yearToken = if ([string]::IsNullOrWhiteSpace($meta.Year)) { "unk" } else { $meta.Year }
     $titleSlug = Normalize-Slug -Text $meta.Title
     $newName = "{0}_{1}.pdf" -f $yearToken, $titleSlug
     if ($newName -ne $f.Name) {
-        $targetPath = Get-UniquePath -Directory $paths.CorpusCorePapers -FileName $newName
+        $targetPath = Get-UniquePath -Directory $paths.CorpusAllPapers -FileName $newName
         Move-Item -LiteralPath $f.FullName -Destination $targetPath
         $renameLog += [pscustomobject]@{
             OldPath = $f.FullName
@@ -202,7 +201,7 @@ foreach ($f in $paperFiles) {
     $meta = Get-PaperMeta -File $f
     $hash = Get-FileHash -LiteralPath $f.FullName -Algorithm SHA256
     $relative = Resolve-Path -LiteralPath $f.FullName -Relative
-    $collection = if ($f.DirectoryName -like "*\papers\awesome*") { "awesome" } else { "core" }
+    $collection = "all"
     if ([string]::IsNullOrWhiteSpace($meta.Year)) {
         $yearForId = "unk"
     } else {

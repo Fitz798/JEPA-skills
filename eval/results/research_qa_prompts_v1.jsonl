@@ -1,0 +1,10 @@
+{"id": "RQ01", "mode": "research_qa", "prompt": "对比 I-JEPA 和 V-JEPA 的核心预测对象与适用任务，并说明在视频理解里为什么 V-JEPA 更常见。", "expected_must_include": ["差异对比", "任务场景", "证据引用"]}
+{"id": "RQ02", "mode": "research_qa", "prompt": "JEPA 相比重建式自监督的优势和典型局限是什么？请给出至少 3 点。", "expected_must_include": ["优势", "局限", "证据"]}
+{"id": "RQ03", "mode": "research_qa", "prompt": "梳理 JEPA 在 world model 方向的主线演进（早期到近期）。", "expected_must_include": ["时间线", "主线", "引用"]}
+{"id": "RQ04", "mode": "research_qa", "prompt": "LeJEPA、Rectified LpJEPA、Var-JEPA 在稳定性/概率建模上的差异是什么？", "expected_must_include": ["方法差异", "稳定性", "证据"]}
+{"id": "RQ05", "mode": "research_qa", "prompt": "JEPA 在多模态（视觉-语言/音频）上的迁移模式有哪些共性？", "expected_must_include": ["共性", "任务", "引用"]}
+{"id": "RQ06", "mode": "research_qa", "prompt": "为什么很多 JEPA 论文会强调 masking/context 设计？", "expected_must_include": ["设计原因", "影响", "证据"]}
+{"id": "RQ07", "mode": "research_qa", "prompt": "如果我的目标是下游线性评估，JEPA 训练阶段最敏感的因素通常是什么？", "expected_must_include": ["敏感因素", "实践建议", "证据"]}
+{"id": "RQ08", "mode": "research_qa", "prompt": "简述 JEPA 与 BYOL/SimCLR 的方法哲学差异。", "expected_must_include": ["方法哲学", "差异", "引用"]}
+{"id": "RQ09", "mode": "research_qa", "prompt": "请给一个 JEPA 研究现状摘要，面向组会 5 分钟汇报。", "expected_must_include": ["现状摘要", "结构化要点", "证据"]}
+{"id": "RQ10", "mode": "research_qa", "prompt": "JEPA 在哪些应用领域出现了快速扩展？哪些方向证据还薄弱？", "expected_must_include": ["扩展领域", "薄弱方向", "证据"]}

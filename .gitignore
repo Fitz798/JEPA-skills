@@ -1,7 +1,10 @@
 # Local heavy corpus (do not commit by default)
-corpus/papers/all/
+corpus/papers/
 corpus/code/archives/
 corpus/_duplicates/
+JEPA-Papers/
+JEPA-CodeBase/
+tmp/
 
 # Python cache
 __pycache__/
