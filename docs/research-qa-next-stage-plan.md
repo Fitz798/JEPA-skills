@@ -50,10 +50,16 @@ These changes improve candidate quality for the two known weak prompt classes wi
 
 ## Immediate Validation Tasks
 
-1. Re-run candidate snapshots for `RQ05` and `RQ07` and store stable comparison artifacts.
-2. Draft revised reference answers for `RQ05` and `RQ07` using the improved candidate sets.
-3. Judge those two prompts manually against the existing rubric.
-4. If both improve, run a fresh `research_qa` 10-prompt judged pass.
+1. ~~Re-run candidate snapshots for `RQ05` and `RQ07` and store stable comparison artifacts.~~ **Done.**
+2. ~~Draft revised reference answers for `RQ05` and `RQ07` using the improved candidate sets.~~ **Done.**
+3. ~~Judge those two prompts manually against the existing rubric.~~ **Done: both scored 100%.**
+4. ~~If both improve, run a fresh `research_qa` 10-prompt judged pass.~~ **Done: v1.2.1 full QA rerun achieved 100% factual correctness + 100% citation hit.**
+
+## Immediate Validation Tasks (Next Phase)
+
+1. Expand long-tail metadata coverage beyond current 11/148 papers.
+2. Add more confirmed `code_id` links for core papers (currently 3/11).
+3. Evaluate whether further citation-hit gains require answer-format constraints or stronger claim-to-citation mapping rules.
 
 ## Success Criteria
 
