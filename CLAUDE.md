@@ -4,7 +4,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project overview
 
-JEPA Skills is a reusable skill package for Claude Code agents doing JEPA (Joint Embedding Predictive Architecture) research. It provides a structured skill definition (`jepa-research/SKILL.md`), metadata indexes for papers and code, validation/build scripts, and a full evaluation benchmark suite. The current version is `v1.2.1`.
+JEPA Skills is a reusable skill package for Claude Code agents doing JEPA (Joint Embedding Predictive Architecture) research. It provides a structured skill definition (`jepa-research/SKILL.md`), metadata indexes for papers and code, validation/build scripts, and a full evaluation benchmark suite. The current version is `v1.3.0`.
+
+## Relationship to world-model-skills
+
+This repo has an independent sibling: [world-model-skills](https://github.com/Fitz798/world-model-skills) — covering Dreamer, MuZero, Diffusion WM, and Transformer WM alongside JEPA. JEPA-skills remains the authoritative source for JEPA-family metadata; world-model-skills references JEPA as one of five families. The two repos share architecture but maintain separate metadata and eval suites.
 
 ## Common commands
 
@@ -126,8 +130,8 @@ Full workflow documented in `docs/v1.2.0-release-eval-workflow.md`.
 | Debug hit (10 prompts) | 90.0% | 90.0% | 90.0% | **100.0%** |
 | Hallucination rate | 0.0% | 0.0% | 0.0% | 0.0% |
 
-## Current gaps (v1.2.1 → v1.3.0)
+## Current gaps (v1.3.0 → future)
 
-- Long-tail metadata: only 11/148 papers have modality/task/evidence_level annotations
-- Code linkage: only 3/11 core papers have confirmed local `code_id`
-- No CLAUDE.md existed before this file — this is the first project-rules document
+- Long-tail metadata: 105/148 papers have modality/task/evidence_level annotations (71% coverage)
+- Code linkage: 7/11 core papers have confirmed code access (3 local + 4 remote)
+- Remote repos: Audio-JEPA (LudovicTuncay), V-JEPA-2 / V-JEPA2.1 (facebookresearch/vjepa2), GRASP planning (michaelpsenka/grasp)
